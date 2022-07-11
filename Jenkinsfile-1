@@ -9,12 +9,12 @@ agent { label 'kubenode1' }
         sh 'docker build -t darinpope/java-web-app:latest .'
       }
     }
-    stage('Scan') {
+    stage('Trivy Scan') {
       steps {
       script{
              // Install trivy
              sh 'echo downloading Trivy ....'
-             sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.18.3'
+             sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp latest'
              // sh 'echo Trivy downloaded'
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl > /tmp/html.tpl'
              sh '/tmp/trivy darinpope/java-web-app:latest'
