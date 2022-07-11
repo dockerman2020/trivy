@@ -7,13 +7,13 @@ agent { label 'kubenode1' }
     stage('Build') {
       steps {
         sh 'docker build -t darinpope/java-web-app:latest .'
-      }
-    }
+        }
+     }
     stage('Trivy Scan') {
       steps {
-      script{
+        script{
              // Install trivy
-             sh 'echo downloading Trivy ....'
+             // sh 'echo downloading Trivy ....'
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.18.3'
              // sh 'echo Trivy downloaded'
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl > /tmp/html.tpl'
@@ -21,7 +21,7 @@ agent { label 'kubenode1' }
              // sh '/tmp/trivy devopshint/my-app-1.0'
              sh '/tmp/trivy  infoslack/dvwa'
              }
-      }
-    }
-  }
+          }
+       }
+   }
 }
