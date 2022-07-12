@@ -18,7 +18,7 @@ agent { label 'kubenode1' }
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.29.2'
              // sh 'echo Trivy downloaded'
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl > /tmp/html.tpl'
-             sh '/tmp/trivy darinpope/java-web-app:latest'
+             // sh '/tmp/trivy darinpope/java-web-app:latest'
              // sh '/tmp/trivy devopshint/my-app-1.0'
              sh '/tmp/trivy  infoslack/dvwa'
              
