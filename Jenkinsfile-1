@@ -20,11 +20,11 @@ agent { label 'kubenode1' }
              sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl > /tmp/html.tpl'
              sh '/tmp/trivy darinpope/java-web-app:latest'
              // sh '/tmp/trivy devopshint/my-app-1.0'
-             sh 'set -x /tmp/trivy  infoslack/dvwa'
+             sh '/tmp/trivy  infoslack/dvwa'
              
              // Scan all vuln levels
                 sh 'mkdir -p reports'
-                // sh 'set -x /tmp/trivy filesystem --ignore-unfixed --vuln-type os,library --format template --template "@html.tpl" -o reports/nodejs-scan.html /usr/bin/nodejs'
+                // sh '/tmp/trivy filesystem --ignore-unfixed --vuln-type os,library --format template --template "@html.tpl" -o reports/nodejs-scan.html /usr/bin/nodejs'
                 sh '/tmp/trivy filesystem --ignore-unfixed --vuln-type os,library --format template --template "/tmp/html.tpl" -o /tmp/nodejs-scan.html /usr/bin/nodejs'
                 publishHTML target : [
                   allowMissing: true,
