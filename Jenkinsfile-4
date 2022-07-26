@@ -2,7 +2,7 @@ pipeline {
     agent {
         // use an agent with trivy installed 
         // or pull it in a stage 
-        // or use a ON-DEMAND agent in kubernetes by using the known oci image
+        // or use a ON-DEMAND agent in kubernetes by using the known oci image.
         kubernetes {
             // Rather than inline YAML, in a multibranch Pipeline you could use: yamlFile 'jenkins-pod.yaml'
             // Or, to avoid YAML:
