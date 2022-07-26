@@ -1,0 +1,33 @@
+pipeline {
+    agent {
+        // use an agent with trivy installed 
+        // or pull it in a stage 
+        // or use a ON-DEMAND agent in kubernetes by using the known oci image
+        kubernetes {
+            // Rather than inline YAML, in a multibranch Pipeline you could use: yamlFile 'jenkins-pod.yaml'
+            // Or, to avoid YAML:
+            containerTemplate {
+                 name 'trivy'
+                 image 'aquasec/trivy:0.21.1'
+                 command 'sleep'
+                 args 'infinity'
+            }
+        }
+    }
+    stages {
+        stage('build image') {
+            steps {
+                sh '''
+                docker build -t dockerman2020/java-web-app:latest .
+                '''
+            }
+        }
+        
+        stage('scan with trivy') {
+            steps {
+                sh "trivy image -f json -o results.json dockerman2020/java-web-app:latest"
+                recordIssues(tools: [trivy(pattern: 'results.json')])
+            }
+        }
+    }
+}
