@@ -1,5 +1,5 @@
 pipeline {
-agent { label 'trivy-docker' }
+agent { label 'kubenode1' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
