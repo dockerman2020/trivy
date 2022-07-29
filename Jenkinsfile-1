@@ -1,5 +1,11 @@
 pipeline {
-agent { label 'any' }
+agent { 
+       docker {
+       image 'dockerman2002/absi.repo-trivy:0.21.1'
+        label 'docker-agent'
+        args  '-v /tmp:/tmp'
+        }
+    }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
