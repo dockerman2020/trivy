@@ -1,7 +1,7 @@
 pipeline {
 agent { 
        docker {
-       image 'dockerman2002/absi.repo-trivy:0.21.1'
+       image 'dockerman2002/jenkins-docker:0.1.0'
         label 'docker-agent'
         args  '-v /tmp:/tmp'
         }
