@@ -1,17 +1,17 @@
 pipeline {
-  agent { label 'linux' }
+  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t darinpope/java-web-app:latest .'
+        sh 'docker build -t dockerman2002/java-web-app:latest .'
       }
     }
     stage('Scan') {
       steps {
-        sh 'trivy --no-progress --exit-code 1 --severity HIGH,CRITICAL darinpope/java-web-app:latest'
+        sh 'trivy --no-progress --exit-code 1 --severity HIGH,CRITICAL dockerman2002/java-web-app:latest'
       }
     }
   }
