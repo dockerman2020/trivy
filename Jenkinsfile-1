@@ -19,7 +19,7 @@ agent {
              // Install trivy
              // sh 'echo downloading Trivy ....'
              //   sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.18.3'
-                sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.21.1'
+             //  sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /tmp v0.21.1'
              // sh 'echo Trivy downloaded'
                 sh 'curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl > /tmp/html.tpl'
                 sh '/tmp/trivy image dockerman2020/java-web-app:latest'
