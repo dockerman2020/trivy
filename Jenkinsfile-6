@@ -7,7 +7,14 @@ agent {
         spec:
           containers:
           - name: jdt
-            image: docker:20:10:16
+            image: dockerman2002/jenkins-docker:0.1.0
+            volumeMounts:
+            - name: dockersock
+              mountPath: "/var/run/docker.sock"
+          volumes:
+            - name: dockersock
+              hostPath:
+                path: /var/run/docker.sock
             command:
             - cat
             tty: true
