@@ -7,7 +7,7 @@ agent {
         spec:
           containers:
           - name: jdt
-            image: dockerman2002/jenkins-docker:0.1.0
+            image: dockerman2002/jenkins-docker-agent
             command:
             - cat
             tty: true
