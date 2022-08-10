@@ -30,7 +30,7 @@ agent {
         }
       }
      }
-   }
+   
     stage('Trivy Scan') {
       steps {
       container('jdt') {
@@ -61,5 +61,6 @@ agent {
              }
           }
        }
+   }
    }
 
