@@ -12,9 +12,9 @@ agent {
             - name: dockersock
               mountPath: "/var/run/docker.sock"
           volumes:
-            - name: dockersock
-              hostPath:
-                path: /var/run/docker.sock
+          - name: dockersock
+            hostPath:
+              path: /var/run/docker.sock
             command:
             - cat
             tty: true
