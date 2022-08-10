@@ -22,6 +22,7 @@ agent {
       steps {
       container('jdt'){
         sh '''
+        find -name docker
         docker build -t dockerman2020/java-web-app:latest .
         '''
         }
