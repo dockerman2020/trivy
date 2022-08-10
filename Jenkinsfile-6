@@ -22,10 +22,7 @@ agent {
       steps {
       container('jdt'){
         sh '''
-        
-        find -name docker
-        docker ps -a
-        // docker build -t dockerman2020/java-web-app:latest .
+        docker build -t dockerman2020/java-web-app:latest .
         '''
         }
       }
