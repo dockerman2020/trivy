@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'mac' }
+  agent { label 'kubenode2' }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
